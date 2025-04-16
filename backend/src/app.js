@@ -1,6 +1,8 @@
 const express = require("express");
 const hiveRoutes = require("./routes/hiveRoutes");
 const cropRoutes = require("./routes/cropRoute"); 
+const errorHandler = require("./middleware//errorHandler");
+const authRoutes = require("./routes/authRoutes");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const connectDB = require("./config/db");
@@ -10,6 +12,8 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use("/api/auth", authRoutes);
+app.use(errorHandler);
 
 connectDB();
 
