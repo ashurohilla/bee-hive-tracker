@@ -1,5 +1,5 @@
 import React from 'react'
-import Login from '../../Components/loginform'
+import Login from '../../Components/Loginform'
 
 function page() {
   return (
