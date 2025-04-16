@@ -75,7 +75,7 @@ export default function Login({
         Back
       </Link>
       <h3 className="text-3xl font-extrabold mb-8 max-md:text-center">
-              Sign in
+              Signup
             </h3>
 
       <form
@@ -109,9 +109,9 @@ export default function Login({
                 </label>
               </div>
               <div className="text-sm">
-                <a href="jajvascript:void(0);" className="text-blue-600 hover:text-blue-500">
+                <Link href={"login"}  className="text-blue-600 hover:text-blue-500">
                   Already have an Acount?
-                </a>
+                </Link>
               </div>
             </div>
         <button
