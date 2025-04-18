@@ -3,6 +3,7 @@
 A full-stack beekeeping field logging application to help beekeepers manage hive placements and monitor pollination opportunities.
 
 ---
+![alt text](image-1.png)
 
 Live urls ---- >>>  Frontend   https://bee-hive-tracker.vercel.app/
 
