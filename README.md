@@ -1,8 +1,5 @@
 Here’s an improved and well-indented version of your README file with better grammar, consistent formatting, and enhanced clarity. The content remains the same as you requested:
 
----
-
-```markdown
 # 🐝 BeeTrail - Hive Management System
 
 A full-stack beekeeping field logging application to help beekeepers manage hive placements and monitor pollination opportunities.
