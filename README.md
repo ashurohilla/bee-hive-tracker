@@ -13,8 +13,8 @@ A full-stack beekeeping field logging application to help beekeepers manage hive
 
 ## 🔗 Live URLs
 
-- **Frontend**: [https://bee-hive-tracker.vercel.app/](https://bee-hive-tracker.vercel.app/)
-- **Backend**: [https://beehivebackend-production.up.railway.app/api](https://beehivebackend-production.up.railway.app/api)
+- Frontend: https://bee-hive-tracker.vercel.app
+- Backend: https://beehivebackend-production.up.railway.app/api
 
 ---
 
