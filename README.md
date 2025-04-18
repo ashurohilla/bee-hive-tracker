@@ -63,8 +63,8 @@ password--->  Ashish@3d21
 - / api/hives   --- > /createhive  ----> create a hive 
                 ----> /gethive     ----> get all hives   
 
--/api/crops    ----> /createcrop   create a crop location  takes type , latitude , longitude 
-               ----> /nearyby     ---> takes latitude and langitude return near crop locations
+- /api/crops   ----> /createcrop   create a crop location  takes type , latitude , longitude 
+               ----> /nearyby     takes latitude and langitude return near crop locations
 
 
 ---
@@ -177,30 +177,30 @@ know -- 3d designing and 3d printing
 hardware boards - like arduino , raspberry pi and node mcu 
 
 
-i realy like to build products and have great interest in tech just want a  chance to prove .. really passionate about building products and realy hard wroking can work days and night 
+## i realy like to build products and have great interest in tech just want a  chance to prove .. really passionate about building products and realy hard wroking can work days and night 
 
-my previous projects -- >   https://www.dianasentinel.com/login  
+## my previous projects -- >   https://www.dianasentinel.com/login  
 
-# Diana sentinel Employe monitoring software solution build during my internship for a uk based startup  composes of 3 apps .. desktop app as client which capture screenshots and data and sends to  a django restframework server  and frontend is build using react 
-
-
-hardware garage -- > https://hardwaregarage-git-main-ashurohillas-projects.vercel.app/   Domain expired auth may fail
+### Diana sentinel Employe monitoring software solution build during my internship for a uk based startup  composes of 3 apps .. desktop app as client which capture screenshots and data and sends to  a django restframework server  and frontend is build using react 
 
 
-# hardware garage -- >   a hardware bloging platforma and text course  app build using next js , supabase and tailwind .. speciality node based editor just like medium.com 
+## hardware garage -- > https://hardwaregarage-git-main-ashurohillas-projects.vercel.app/   Domain expired auth may fail
 
-# kakha  -- >   https://my-kaksha-by-ashish.vercel.app/ 
+
+### hardware garage -- >   a hardware bloging platforma and text course  app build using next js , supabase and tailwind .. speciality node based editor just like medium.com 
+
+### kakha  -- >   https://my-kaksha-by-ashish.vercel.app/ 
 
 Comunnity builder and seller people can create community newsletter and sell their content to student -- example -- nail art instructor , Enterprenurship course by xyz founder
 
 other random stuff 
 
-# portfolio -- > https://ashish-rohilla.web.app/
-# Agency page -- >  https://scale-saas.vercel.app/
+### portfolio -- > https://ashish-rohilla.web.app/
+### Agency page -- >  https://scale-saas.vercel.app/
 
-# 3d website -- >  https://peakyypages.vercel.app/
+### 3d website -- >  https://peakyypages.vercel.app/
 
-# freelancing work -- > https://www.homefinderr.com/
+### freelancing work -- > https://www.homefinderr.com/
 
 
 thanks and regards
