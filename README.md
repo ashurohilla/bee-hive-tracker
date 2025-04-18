@@ -67,6 +67,9 @@ password--->  Ashish@3d21
                ----> /nearyby     takes latitude and langitude return near crop locations
 
 
+###  Export logs into a excel file by login into beekeeper acount               
+
+
 ---
 
 ## 🧰 Tech Stack
@@ -125,6 +128,10 @@ build docker image  ---- >  docker build -t beehivetrackerbackend .
 run docker image -- >   docker run -d -p 5000:5000 --name beehivetrackerbackend beehivetrackerbackend
 
 check container using -- > docker ps
+
+CONTAINER ID   IMAGE                   COMMAND                  CREATED          STATUS          PORTS                    NAMES
+5175a41f118d   beehivetrackerbackend   "docker-entrypoint.s…"   28 minutes ago   Up 28 minutes   0.0.0.0:5000->5000/tcp   beehivetrackerbackend
+b7c2c3fb222d   beehivetracker          "docker-entrypoint.s…"   36 minutes ago   Up 36 minutes   0.0.0.0:3000->3000/tcp   beehive-frontend
 
 
 # building locally by cli 
