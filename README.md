@@ -1,143 +1,234 @@
-# 🐝 BeeHive Tracker API
+# 🐝 BeeTrail - Hive Management System
 
-A fullstack project to help beekeepers track hive placements, flowering crops, and find crop opportunities based on geolocation and flowering windows.
+A full-stack beekeeping field logging application to help beekeepers manage hive placements and monitor pollination opportunities.
 
 ---
 
-## 📁 Project Structure
+Live urls ---- >>>  Frontend   https://bee-hive-tracker.vercel.app/
 
-. ├── backend/ # Node.js API server (Express + MongoDB + JWT Auth) │ ├── Dockerfile │ └── .env ├── frontend/ # Frontend (React / Next.js) │ ├── Dockerfile │ └── .env (if needed) ├── docker-compose.yml # Container orchestration └── README.md
+Backend------->>    Backend    https://beehivebackend-production.up.railway.app/api
 
-yaml
-Copy
-Edit
+
+dummy credentials if dont want to create and account 
+
+
+## for admin access
+
+Email---- >  ashish.rohilla@decimal.com
+password --- > Ashish@3d21
+
+
+## for beekeper access 
+
+Email ----->  ashishrohilla510@gmail.com
+
+password--->  Ashish@3d21
+
+## 🏗 Project Infrastructure
+
+- **Project Type**: Monolithic
+- **Frontend**: Next.js 15 (App Router)
+- **Backend**: Node.js + Express.js
+- **Database**: MongoDB (hosted on Railway via Docker)
+- **Containerization**: Docker + Docker Compose
+- **Deployment**:
+  - Frontend: Vercel
+  - Backend: Railway.app
+  - Database: Railway.app (MongoDB Docker image)
 
 ---
 
 ## 🚀 Features
 
-- Add / Get Hive Logs
-- Add / Get Nearby Crop Calendar Entries
-- JWT Authentication (Admin & Beekeeper)
-- MongoDB as database
-- Dockerized setup with Compose
-- Bonus: Export logs, Swagger docs (optional)
+- 🌍 Log hive placements with geolocation (latitude, longitude)
+- 📅 View hive logs with date filtering and pagination
+- 📥 Export hive logs to CSV
+- 🧑‍🌾 Role-based login for **admin** and **beekeeper**
+- 📊 Crop-pollination opportunity matching (geo-based, coming soon)
+- 💻 Admin UI with ShadCN (form components, tables, cards, buttons)
+- 💻 Private routes of both admin dashboard and beekeeper ensure perfect login
+
+
+## jwt authentication for server and client 
+
+- added private page route for both admina and  beekeeper ensure only visible for a valid authenticated and authorised user
+
+## ALL api  endpoints
+
+- /register -- takes email , password , role  for register user  ( default  role is beekeeper)
+
+- /login -- >  takes email and password and return jwt token to client
+
+- / api/hives   --- > /createhive  ----> create a hive 
+                ----> /gethive     ----> get all hives   
+
+-/api/crops    ----> /createcrop   create a crop location  takes type , latitude , longitude 
+               ----> /nearyby     ---> takes latitude and langitude return near crop locations
+
 
 ---
 
-## 🛠️ Tech Stack
+## 🧰 Tech Stack
 
-- Node.js + Express
-- MongoDB (Docker)
-- JWT Authentication
-- Docker + Docker Compose
-- React / Next.js (Frontend)
+| Layer       | Tech                          |
+|-------------|-------------------------------|
+| Frontend    | Next.js 15, ShadCN, TailwindCSS |
+| Backend     | Node.js, Express.js           |
+| Database    | MongoDB (via Docker)          |
+| Infra       | Docker, Docker Compose        |
+| Deployment  | Vercel (Frontend), Railway (API & DB) |
 
 ---
 
-## 📦 Environment Variables
+## ⚙️ Local Development Setup
 
-Create a `.env` file inside `backend/`:
+Setup .env files for frontend and backend  from  env.example
 
-```env
-PORT=5000
-MONGO_URI=mongodb://admin:admin123@mongodb:27017/beehive_dev?authSource=admin
-JWT_SECRET=your_super_secret_jwt
-▶️ Running the Project
-🔸 Option 1: Using Docker Compose (Recommended)
-bash
-Copy
-Edit
-# Run all services
-docker-compose up --build
-Access Backend: http://localhost:5000
-Access Frontend: http://localhost:3000
 
-🔸 Option 2: Run Services Individually
-1. Start MongoDB manually via Docker:
-bash
-Copy
-Edit
-docker run -d \
-  --name mongodb-dev \
-  -e MONGO_INITDB_ROOT_USERNAME=admin \
-  -e MONGO_INITDB_ROOT_PASSWORD=admin123 \
-  -p 27017:27017 \
-  mongo
-2. Start Backend (Dev mode)
-bash
-Copy
-Edit
-cd backend
-npm install
-npm run dev
-3. Start Frontend (React/Next)
-bash
-Copy
-Edit
+# Building Frontend using docker  
+
+
+cd  beehive-tracker or press tab to find the root folder
+
 cd frontend
-npm install
-npm run dev
-🔐 Authentication
-Register
-POST /api/auth/register
-Body:
+cd beehivetracker 
 
-json
-Copy
-Edit
-{
-  "username": "beekeeper1",
-  "password": "pass123",
-  "role": "beekeeper"
-}
-Login
-POST /api/auth/login
 
-Get token and pass as Bearer <token> in headers.
+build docker image for next js  --- >  docker build -t beehivetracker .
 
-🧪 Sample Postman Collection
-➡️ Include a Postman collection in postman/ folder (or export it via Postman).
+running container of image --->  docker run -d -p 3000:3000 --name beehive-frontend beehivetracker
 
-📄 API Endpoints
 
-Method	Endpoint	Description
-POST	/api/hives	Add new hive log
-GET	/api/hives	Get all hive logs (pagination)
-POST	/api/crops	Add new crop entry
-GET	/api/crops/nearby	Find nearby flowering crops
-POST	/api/auth/register	Register user (admin/beekeeper)
-POST	/api/auth/login	Login and get JWT token
-📂 Sample Crop JSON (Mock Data)
-json
-Copy
-Edit
-{
-  "name": "Sunflower",
-  "floweringStart": "2025-04-10",
-  "floweringEnd": "2025-04-25",
-  "latitude": 26.9124,
-  "longitude": 75.7873,
-  "recommendedHiveDensity": 5
-}
-✨ Bonus Features
-Swagger/OpenAPI Documentation at /api-docs
+check if its running -- > docker ps --- return all running containers
 
-Role-based dashboard (Admin only)
+CONTAINER ID   IMAGE            COMMAND                  CREATED          STATUS          PORTS                    NAMES
+b7c2c3fb222d   beehivetracker   "docker-entrypoint.s…"   23 seconds ago   Up 22 seconds   0.0.0.0:3000->3000/tcp   beehive-frontend
 
-Export logs as CSV
+# Running Frontend locally
 
-👨‍💻 Author
-Built by Ashish 🚀
-Inspired by real-world field tracking systems 🐝
+cd frontend 
+cd beehivetracker
 
-📝 License
-This project is licensed under the MIT License.
+Run --- > npm install 
 
-yaml
-Copy
-Edit
+Run -- >  npm run dev
 
----
 
-Let me know if you want the Postman collection exported or if you'd like to auto-generate Swagger
+
+#  Building Backend using docker 
+
+cd backend
+
+build docker image  ---- >  docker build -t beehivetrackerbackend .
+
+run docker image -- >   docker run -d -p 5000:5000 --name beehivetrackerbackend beehivetrackerbackend
+
+check container using -- > docker ps
+
+
+# building locally by cli 
+ cd backend 
+
+Run npm install 
+
+Run npm start 
+
+start dev server at --- localhost:5000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###  My other  skills that i learned recently
+
+currently learning Go lang because i find this language intersting and i can build inovative cloud solution at enterprize level 
+
+learned infrastructure  and devops
+
+-- docker
+-- kubernetes  as container orchestration
+--- helm 
+--- jenkins  ci and cd piplines 
+--- Ansible 
+--- Teraform ( infra as code )
+--- linux and bash scripting
+--- Argo cd 
+
+
+Hobyies skills
+
+hardware tinkering 
+know -- 3d designing and 3d printing 
+hardware boards - like arduino , raspberry pi and node mcu 
+
+
+i realy like to build products and have great interest in tech just want a  chance to prove .. really passionate about building products and realy hard wroking can work days and night 
+
+my previous projects -- >   https://www.dianasentinel.com/login  
+
+# Diana sentinel Employe monitoring software solution build during my internship for a uk based startup  composes of 3 apps .. desktop app as client which capture screenshots and data and sends to  a django restframework server  and frontend is build using react 
+
+
+hardware garage -- > https://hardwaregarage-git-main-ashurohillas-projects.vercel.app/   Domain expired auth may fail
+
+
+# hardware garage -- >   a hardware bloging platforma and text course  app build using next js , supabase and tailwind .. speciality node based editor just like medium.com 
+
+# kakha  -- >   https://my-kaksha-by-ashish.vercel.app/ 
+
+Comunnity builder and seller people can create community newsletter and sell their content to student -- example -- nail art instructor , Enterprenurship course by xyz founder
+
+other random stuff 
+
+# portfolio -- > https://ashish-rohilla.web.app/
+# Agency page -- >  https://scale-saas.vercel.app/
+
+# 3d website -- >  https://peakyypages.vercel.app/
+
+# freelancing work -- > https://www.homefinderr.com/
+
+
+thanks and regards
+
+Email - ashishrohilla510@gmail.com
+Phone no --  9588368052
+linkedin-- https://www.linkedin.com/in/ashish-rohilla-3200011ba/ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+### using Docker
+
+# docker-compose up --build
+
+-- Frontend (localhost:3000)
+-- Backend (localhost:5000)
+-- MongoDB (localhost:27017)
+
+
+may need to setup env variables for proper connection or uncomment the local variables
+
+
