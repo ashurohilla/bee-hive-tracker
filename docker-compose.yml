@@ -2,7 +2,9 @@ version: '3.8'
 
 services:
   backend:
-    build: ./backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     ports:
       - "5000:5000"
     env_file:
@@ -15,11 +17,13 @@ services:
       - bee-network
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend/beehivetracker
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
     volumes:
-      - ./frontend:/app
+      - ./frontend/beehivetracker:/app
     networks:
       - bee-network
 
