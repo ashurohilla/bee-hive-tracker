@@ -2,8 +2,8 @@ export default function DashboardLayout({
     children,
   }) {
     return (
-      <section>
+      <div>
         {children}
-      </section>
+      </div>
     )
   }

@@ -9,19 +9,19 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+} from "../src/components/ui/card";
+import { Input } from "../src/components/ui/input";
+import { Label } from "../src/components/ui/label";
+import { Button } from "../src/components/ui/button";
+import { Alert, AlertDescription } from "../src/components/ui/alert";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../src/components/ui/tabs";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "../src/components/ui/select";
 import { CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 
 
@@ -36,11 +36,9 @@ export default function HiveManagementPanel({
   onSubmit = async () => {},
 } ) {
   const [submitting, setSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<
-    "idle" | "success" | "error"
-  >("idle");
+  const [submitStatus, setSubmitStatus] = useState("idle");
   const [statusMessage, setStatusMessage] = useState("");
-  const [selectedBeekeeper, setSelectedBeekeeper] = useState<string>("");
+  const [selectedBeekeeper, setSelectedBeekeeper] = useState("");
 
   const {
     register,
@@ -48,7 +46,7 @@ export default function HiveManagementPanel({
     formState: { errors },
     reset,
     watch,
-  } = useForm<HiveFormData>({
+  } = useForm({
     defaultValues: {
       hiveId: "",
       datePlaced: new Date().toISOString().split("T")[0],
