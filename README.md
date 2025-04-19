@@ -170,6 +170,82 @@ Backend should now be live at: `http://localhost:5000`
 
 ---
 
+##  Logic for apis 
+
+other apis are easier that are simple crud api .. 
+
+the little hard is nearbycrop 
+
+gets latitude , longitude and radius and return near by crops that are registered 
+
+i have implemented using this function 
+Here’s your description in **Markdown format**, suitable for documentation like your project’s `README.md` or a dedicated API docs page:
+
+
+#### **Endpoint**
+```
+GET /api/crops/nearby
+```
+
+
+#### **Implementation:**
+
+```js
+module.exports = function haversine(loc1, loc2) {
+  const toRad = (v) => (v * Math.PI) / 180;
+  const R = 6371; // Earth radius in kilometers
+
+  const dLat = toRad(loc2.latitude - loc1.latitude);
+  const dLon = toRad(loc2.longitude - loc1.longitude);
+  const lat1 = toRad(loc1.latitude);
+  const lat2 = toRad(loc2.latitude);
+
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) ** 2;
+
+  return R * (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)));
+};
+```
+
+The crops are filtered using two main checks:
+1. The crop's **flowering period** should cover the provided date.
+2. The crop should be **within the specified radius** from the given latitude and longitude.
+
+---
+
+#### ✅ Example Request:
+```
+GET /api/crops/nearby?latitude=28.6139&longitude=77.2090&radius=50
+```
+
+---
+
+#### ✅ Example Response:
+
+```json
+[
+  {
+    "cropName": "Mustard",
+    "latitude": 28.62,
+    "longitude": 77.21,
+    "floweringStart": "2024-12-01T00:00:00Z",
+    "floweringEnd": "2025-03-15T00:00:00Z"
+  },
+  {
+    "cropName": "Sunflower",
+    "latitude": 28.59,
+    "longitude": 77.22,
+    "floweringStart": "2025-01-01T00:00:00Z",
+    "floweringEnd": "2025-04-10T00:00:00Z"
+  }
+]
+```
+  
+
+
+
+
 ## 🧪 Other Skills & Interests
 
 ### 💻 Recently Learning:
