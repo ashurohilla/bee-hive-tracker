@@ -179,8 +179,6 @@ the little hard is nearbycrop
 gets latitude , longitude and radius and return near by crops that are registered 
 
 i have implemented using this function 
-Here’s your description in **Markdown format**, suitable for documentation like your project’s `README.md` or a dedicated API docs page:
-
 
 #### **Endpoint**
 ```
@@ -241,6 +239,13 @@ GET /api/crops/nearby?latitude=28.6139&longitude=77.2090&radius=50
   }
 ]
 ```
+
+
+# postman docs 
+
+[https://development-7029.postman.co/workspace/beehivebackend~5d1749a2-ac3a-48b9-a33d-af8abf0dc91e/collection/20337832-04bcdb6e-c6f3-44e3-ad46-6b3776a544f5?action=share&creator=20337832
+](https://development-7029.postman.co/workspace/beehivebackend~5d1749a2-ac3a-48b9-a33d-af8abf0dc91e/collection/20337832-04bcdb6e-c6f3-44e3-ad46-6b3776a544f5?action=share&creator=20337832)
+
   
 
 
